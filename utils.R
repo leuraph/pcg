@@ -58,7 +58,7 @@ pcg_ichol <- function(A, b, initial_guess = rep(0, length(b)), maxiter=10000, re
         relative_residual = norm(r_new, type="2") / norm(r_zero, type="2")
         if(verbose)
         {
-        cat("iteration: ", i, ", relative residual: ",relative_residual)
+            cat("iteration: ", i, ", relative residual: ",relative_residual)
         }
         if(relative_residual < relative_threshold)
         {

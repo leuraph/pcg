@@ -10,6 +10,15 @@ solve_twice <- function(A, B, b)
 }
 
 
+#' Solves Ax=b using pcg with an incomplete cholesky factorization as preconditioner.
+#'
+#' @param A Symmetric, positive-definite matrix.
+#' @param b Right-hand side of the system.
+#' @param initial_guess Initial guess of the solution.
+#' @param maxiter Maximum number of iterations to be performed.
+#' @param relative_threshold Minimum value of norm(r_zero)/norm(r_new) for which to break.
+#' @param verbose If true, print some information during iterations.
+#' @return The approximate result x.
 pcg_ichol <- function(A, b, initial_guess = rep(0, length(b)), maxiter=10000, relative_threshold=1e-5, verbose=FALSE)
 {
    L_upper = as(ichol(A), "triangularMatrix");

@@ -4,8 +4,8 @@ library(Matrix);
 #' Solves the linear system ABx = b by solving Ay=b and BX=y.
 solve_twice <- function(A, B, b)
 {
-   y = solve(A, b)
-   x = solve(B, y)
+   y = solve(A, b)  # maybe do Matrix::solve(A, b)
+   x = solve(B, y)  # maybe do Matrix::solve(B, y)
    return(x)
 }
 

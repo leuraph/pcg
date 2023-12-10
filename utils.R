@@ -1,12 +1,12 @@
 library(Matrix);
 
 
-back_and_forwardsolve <- function(L_upper, L_lower, b)
+#' Solves the linear system ABx = b by solving Ay=b and BX=y.
+solve_twice <- function(A, B, b)
 {
-   y = solve(L_upper, b)
-   x = solve(L_lower, y)
-   # return(as(x, 'dgeMatrix')) # dgeMatrix
-   return(x) # vector
+   y = solve(A, b)
+   x = solve(B, y)
+   return(x)
 }
 
 
@@ -23,7 +23,7 @@ pcg_ichol = function(A, b, initial_guess = rep(0, length(b)), maxiter=10000, rel
 
    for(i in 1:maxiter)
    {
-        z = back_and_forwardsolve(L_upper, L_lower, r_old)
+        z = solve_twice(L_upper, L_lower, r_old)
         rho_old = r_old %*% z
         if (i==1)
         {

@@ -3,7 +3,7 @@ library(GPvecchia);
 source('utils.R')
 
 
-test_back_and_forwardsolve = function(verbose = FALSE)
+test_solve_twice = function(verbose = FALSE)
 {
    dim = 100
 
@@ -14,10 +14,10 @@ test_back_and_forwardsolve = function(verbose = FALSE)
 
    b = runif(n=dim, min=0.01, max=1.0)
 
-   z_actual = back_and_forwardsolve(L_upper, L_lower, b)
+   z_actual = solve_twice(L_upper, L_lower, b)
    z_expected = solve(L_upper %*% L_lower, b)
 
-   cat("back_and_forwardsolve == solve: ", all.equal(z_actual, z_expected, tolerance=0.001), "\n")
+   cat("solve_twice == solve: ", all.equal(z_actual, z_expected, tolerance=0.001), "\n")
 }
 
 
@@ -40,4 +40,4 @@ test_pcg_ichol = function(verbose = FALSE)
 }
 
 test_pcg_ichol()
-test_back_and_forwardsolve()
+test_solve_twice()

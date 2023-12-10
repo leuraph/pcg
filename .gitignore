@@ -1,3 +1,4 @@
+A <- rsparsematrix(dim, dim, 0.1) + Diagonal(dim, 0.1);
 # History files
 .Rhistory
 .Rapp.history
@@ -47,3 +48,5 @@ po/*~
 
 # RStudio Connect folder
 rsconnect/
+
+.vscode/

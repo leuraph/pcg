@@ -10,7 +10,7 @@ solve_twice <- function(A, B, b)
 }
 
 
-pcg_ichol = function(A, b, initial_guess = rep(0, length(b)), maxiter=10000, relative_threshold=1e-5, verbose=FALSE)
+pcg_ichol <- function(A, b, initial_guess = rep(0, length(b)), maxiter=10000, relative_threshold=1e-5, verbose=FALSE)
 {
    L_upper = as(ichol(A), "triangularMatrix");
    L_lower = t(L_upper);

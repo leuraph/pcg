@@ -3,7 +3,7 @@ library(GPvecchia);
 source('utils.R')
 
 
-test_solve_twice = function(verbose = FALSE)
+test_solve_twice <- function(verbose = FALSE)
 {
    dim = 100
 
@@ -21,7 +21,7 @@ test_solve_twice = function(verbose = FALSE)
 }
 
 
-test_pcg_ichol = function(verbose = FALSE)
+test_pcg_ichol <- function(verbose = FALSE)
 {
    dim = 1000
 
